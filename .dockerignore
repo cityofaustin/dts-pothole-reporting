@@ -1,0 +1,7 @@
+# Ignoring everything
+*
+
+# Only allow the specific files we need
+!waze/utils.py
+!waze/waze_report_logging.py
+!requirements.txt

@@ -1,0 +1,10 @@
+# Waze
+WAZE_PARTNER_ID=<partner ID: Waze Partner API>
+WAZE_TOKEN=<token: Waze Partner API>
+
+# Socrata
+SOCRATA_ENDPOINT=datahub.austintexas.gov
+SOCRATA_API_KEY_ID=<apiKeyId: Socrata Key ID, Secret, and Token>
+SOCRATA_API_KEY_SECRET=<apiKeySecret: Socrata Key ID, Secret, and Token>
+SOCRATA_APP_TOKEN=<appToken: Socrata Key ID, Secret, and Token>
+POTHOLE_LOG_DATASET=u4bn-tiau
