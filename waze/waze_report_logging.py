@@ -31,6 +31,10 @@ def retrieve_stored_active_potholes(soda_client):
         POTHOLE_LOG_DATASET, select="uuid", where="status == 'active'"
     )
     logger.info(f"Retrieved {len(active)} active pothole reports from Socrata")
+    if len(active) == 1000:
+        raise ValueError(
+            "Socrata API returned 1000 active potholes, which is the maximum limit. We didn't expect this and will need to implement pagination or handle this case differently."
+        )
     return [a["uuid"] for a in active]
 
 
@@ -66,6 +70,8 @@ def string_to_boolean(string):
 def upsert_pothole_log(data, soda_client):
     logger.info(f"Upserting {len(data)} pothole records to Socrata")
     response = soda_client.upsert(POTHOLE_LOG_DATASET, data)
+    if response["Errors"] > 0:
+        raise ValueError("Socrata API returned errors when upserting pothole records.")
     return response
 
 
